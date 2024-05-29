@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Desafio aula 2</title>
+</head>
+<body>
+    <input id="num1">
+    <input id="num2">
+    <button onclick="validar_soma()">somar</button>
+    <p id="valor"></p>
+    
+    <script>
+        function validar_soma(){
+            valor1 = Number(document.getElementById('num1').value)
+            valor2 = Number(document.getElementById('num2').value)
+            if( isNaN(valor1) || isNaN(valor2)){
+            document.getElementById('valor').innerHTML = 'Não se pode somar isso'
+            return false
+            }else{
+                somar = valor1 + valor2
+                document.getElementById('valor').innerHTML = somar
+                return true
+            }
+        }
+    </script>
+</body>
+</html>
