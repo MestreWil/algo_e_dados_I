@@ -9,7 +9,9 @@ class Lista:
         def __init__(self, valor, proximo=None):
             self.valor = valor
             self.proximo = None
-  
+
+        def __str__(self):
+            return str(self.valor)
   
     def __init__(self):
         self.__cabeca = None
