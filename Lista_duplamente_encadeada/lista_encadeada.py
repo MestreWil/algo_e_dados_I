@@ -25,6 +25,16 @@ class Lista:
 
         return atual.valor
     
+    def __iter__(self):
+        atual = self.__cabeca
+        while atual is not None:
+            yield atual.valor
+            atual = atual.proximo
+    
+    def __str__(self):
+        return '['+ ' ,'.join([str(valor) for valor in self]) + ']'
+    
+    
     def __len__(self):
         return self.__quantidade
   
@@ -61,3 +71,4 @@ print(len(lista))
 print(f'O elemento na posicao 0 é {lista[3]}')
 for i in lista:
     print(i)
+print(lista)
