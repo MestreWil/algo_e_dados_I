@@ -18,6 +18,22 @@ class Lista:
         self.__quantidade = 0
     
     def __getitem__(self, posicao):
+        
+        if isinstance(posicao, slice):
+            passo = posicao.step if posicao.step is not None else 1
+            
+            if passo == 0:
+                raise ValueError("Passo não pode ser zero.")
+            if passo > 0:
+                inicio = posicao.start if posicao.start is not None else 0
+                fim = posicao.stop if posicao.stop is not None else len(self)
+            else:
+                inicio = posicao.start if posicao.start is not None else len(self) - 1
+                fim = posicao.stop if psoicao.stop is not None else - 1
+        
+        if posicao < 0:
+            posicao = len(self) + posicao
+        
         if posicao < 0 or posicao >= self.__quantidade:
             raise IndexError("Posição invélida")
     
@@ -69,8 +85,6 @@ lista.inserir(0, 5)
 lista.inserir(1, 20)
 lista.inserir(1, 15)
 lista.inserir(1, 10)
-print(len(lista))
-print(f'O elemento na posicao 0 é {lista[3]}')
-for i in lista:
-    print(i)
+
 print(lista)
+print(lista[-1])
