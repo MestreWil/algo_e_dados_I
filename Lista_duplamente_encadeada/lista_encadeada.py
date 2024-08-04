@@ -30,6 +30,12 @@ class Lista:
             else:
                 inicio = posicao.start if posicao.start is not None else len(self) - 1
                 fim = posicao.stop if psoicao.stop is not None else - 1
+                
+            if inicio < 0:
+                inicio = len(self) + inicio
+                
+            if fim < 0 and posicao.stop is not None:
+                fim = len(self) + fim
         
         if posicao < 0:
             posicao = len(self) + posicao
